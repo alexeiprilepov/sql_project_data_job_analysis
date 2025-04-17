@@ -12,7 +12,10 @@ WHERE
     AND job_work_from_home = TRUE
 GROUP BY
     skills
+HAVING
+    COUNT(jpf.job_id) > 10
 ORDER BY
-    demand_count DESC, avg_salary DESC
+    avg_salary DESC,
+    demand_count DESC
 LIMIT
-    5;
+    10;
